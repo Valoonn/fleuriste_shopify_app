@@ -1,8 +1,12 @@
 import { DeliveryMethod } from "@shopify/shopify-api";
+import shopify from "./shopify.js";
 
 /**
  * @type {{[key: string]: import("@shopify/shopify-api").WebhookHandler}}
  */
+
+
+
 export default {
   /**
    * Customers can request their data from a store owner. When this happens,
@@ -12,27 +16,9 @@ export default {
    */
   CUSTOMERS_DATA_REQUEST: {
     deliveryMethod: DeliveryMethod.Http,
-    callbackUrl: "/api/webhooks",
+    callbackUrl: shopify.config.webhooks.path,
     callback: async (topic, shop, body, webhookId) => {
       const payload = JSON.parse(body);
-      // Payload has the following shape:
-      // {
-      //   "shop_id": 954889,
-      //   "shop_domain": "{shop}.myshopify.com",
-      //   "orders_requested": [
-      //     299938,
-      //     280263,
-      //     220458
-      //   ],
-      //   "customer": {
-      //     "id": 191167,
-      //     "email": "john@example.com",
-      //     "phone": "555-625-1199"
-      //   },
-      //   "data_request": {
-      //     "id": 9999
-      //   }
-      // }
     },
   },
 
@@ -44,49 +30,25 @@ export default {
    */
   CUSTOMERS_REDACT: {
     deliveryMethod: DeliveryMethod.Http,
-    callbackUrl: "/api/webhooks",
+    callbackUrl: shopify.config.webhooks.path,
     callback: async (topic, shop, body, webhookId) => {
       const payload = JSON.parse(body);
-      // Payload has the following shape:
-      // {
-      //   "shop_id": 954889,
-      //   "shop_domain": "{shop}.myshopify.com",
-      //   "customer": {
-      //     "id": 191167,
-      //     "email": "john@example.com",
-      //     "phone": "555-625-1199"
-      //   },
-      //   "orders_to_redact": [
-      //     299938,
-      //     280263,
-      //     220458
-      //   ]
-      // }
     },
   },
 
-  /**
-   * 48 hours after a store owner uninstalls your app, Shopify invokes this
-   * webhook.
-   *
-   * https://shopify.dev/docs/apps/webhooks/configuration/mandatory-webhooks#shop-redact
-   */
   SHOP_REDACT: {
     deliveryMethod: DeliveryMethod.Http,
-    callbackUrl: "/api/webhooks",
+    callbackUrl: shopify.config.webhooks.path,
     callback: async (topic, shop, body, webhookId) => {
       const payload = JSON.parse(body);
-      // Payload has the following shape:
-      // {
-      //   "shop_id": 954889,
-      //   "shop_domain": "{shop}.myshopify.com"
-      // }
     },
   },
 
-  ORDER_PAID: {
+
+
+  ORDERS_PAID: {
     deliveryMethod: DeliveryMethod.Http,
-    callbackUrl: "/api/webhooks",
+    callbackUrl: shopify.config.webhooks.path,
     callback: async (topic, shop, body, webhookId) => {
       const payload = JSON.parse(body);
       console.log(payload)
@@ -94,7 +56,81 @@ export default {
       console.log(topic);
       console.log(shop);
       console.log(webhookId);
-      // Payload has the following shape:
     },
   },
-};
+
+
+
+  LOCATIONS_CREATE: {
+    deliveryMethod: DeliveryMethod.Http,
+    callbackUrl: shopify.config.webhooks.path,
+    callback: async (topic, shop, body, webhookId) => {
+      console.log("LOCATIONS_CREATE webhook received");
+      console.log(topic);
+      console.log(shop);
+      console.log(webhookId);
+      const payload = JSON.parse(body);
+      console.log(payload)
+    }
+  },
+
+
+
+  ORDERS_CREATE: {
+    deliveryMethod: DeliveryMethod.Http,
+    callbackUrl: shopify.config.webhooks.path,
+    callback: async (topic, shop, body, webhookId) => {
+      const payload = JSON.parse(body);
+      console.log(payload)
+      console.log("ORDERS_CREATE webhook received");
+      console.log(topic);
+      console.log(shop);
+      console.log(webhookId);
+    }
+  },
+
+
+
+  ORDERS_UPDATED: {
+    deliveryMethod: DeliveryMethod.Http,
+    callbackUrl: shopify.config.webhooks.path,
+    callback: async (topic, shop, body, webhookId) => {
+      const payload = JSON.parse(body);
+      console.log(payload)
+      console.log("ORDERS_UPDATED webhook received");
+      console.log(topic);
+      console.log(shop);
+      console.log(webhookId);
+    }
+  },
+
+
+
+  ORDERS_FULFILLED: {
+    deliveryMethod: DeliveryMethod.Http,
+    callbackUrl: shopify.config.webhooks.path,
+    callback: async (topic, shop, body, webhookId) => {
+      const payload = JSON.parse(body);
+      console.log(payload)
+      console.log("ORDERS_FULFILLED webhook received");
+      console.log(topic);
+      console.log(shop);
+      console.log(webhookId);
+    }
+  },
+
+
+
+  ORDERS_CANCELLED: {
+    deliveryMethod: DeliveryMethod.Http,
+    callbackUrl: shopify.config.webhooks.path,
+    callback: async (topic, shop, body, webhookId) => {
+      const payload = JSON.parse(body);
+      console.log(payload)
+      console.log("ORDERS_CANCELLED webhook received");
+      console.log(topic);
+      console.log(shop);
+      console.log(webhookId);
+    }
+  }
+}
