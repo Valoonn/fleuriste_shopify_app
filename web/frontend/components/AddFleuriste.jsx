@@ -71,7 +71,6 @@ export default function AddFleuriste() {
     <>
       <LegacyCard
         title="Fleuristes"
-        secondaryFooterActions={[{ content: 'Modifier les fleuriste', onAction: () => setEditFleuristeList(!editFleuristeList) }]}
         primaryFooterAction={{ content: 'Ajouter un fleuriste', onAction: () => setIsAddingFleuriste(!isAddingFleuriste) }}
         sectioned>
         <ResourceList
@@ -103,7 +102,7 @@ export default function AddFleuriste() {
                 <Text variant="bodyMd" fontWeight="bold" as="h3">
                   {name}
                 </Text>
-                <div>{address1}, {zip} {city}, {localized_country_name}</div>
+                <div>{address1}, {zip} {city}</div>
                 {editFleuristeList && <Button destructive onClick={() => { removeFleuriste(locationId) }}>Suprimer</Button>}
               </ResourceItem>
             );

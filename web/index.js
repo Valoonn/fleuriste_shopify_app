@@ -52,15 +52,7 @@ shopify.api.webhooks.addHandlers({
     deliveryMethod: DeliveryMethod.Http,
     callbackUrl: shopify.config.webhooks.path,
   },
-  ATTRIBUTED_SESSIONS_FIRST: {
-    deliveryMethod: DeliveryMethod.Http,
-    callbackUrl: shopify.config.webhooks.path,
-  },
   ATTRIBUTED_SESSIONS_LAST: {
-    deliveryMethod: DeliveryMethod.Http,
-    callbackUrl: shopify.config.webhooks.path,
-  },
-  AUDIT_EVENTS_ADMIN_API_ACTIVITY: {
     deliveryMethod: DeliveryMethod.Http,
     callbackUrl: shopify.config.webhooks.path,
   },
@@ -373,6 +365,10 @@ shopify.api.webhooks.addHandlers({
     callbackUrl: shopify.config.webhooks.path,
   },
   REFUNDS_CREATE: {
+    deliveryMethod: DeliveryMethod.Http,
+    callbackUrl: shopify.config.webhooks.path,
+  },
+  LOCATIONS_CREATE: {
     deliveryMethod: DeliveryMethod.Http,
     callbackUrl: shopify.config.webhooks.path,
   },
