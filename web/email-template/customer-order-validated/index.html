@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="x-apple-disable-message-reformatting">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&family=Inter&display=swap"
+    rel="stylesheet">
+  <title></title>
+  <style>
+    body {
+      background-color: aliceblue;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .content {
+      padding: 20px 20px;
+    }
+
+    .orderNumber {
+      color: rgb(146, 146, 146);
+      font-size: 14px;
+    }
+
+    .header {
+      margin: 30px 0;
+
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .title-light {
+      font-size: 24px;
+      margin: 10px 0;
+    }
+
+    .text {
+      font-size: 16px;
+    }
+
+    .paragraph {
+      font-size: 15px;
+    }
+
+    .product-tab {
+      margin: 30px 0;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .product-img {
+      width: 75px;
+    }
+
+    td {
+      align-items: center;
+      width: fit-content;
+      padding: 0px 5px;
+    }
+
+    .product-line {
+      border-bottom: 1px solid rgb(199, 199, 199);
+    }
+
+
+    .accept-btn {
+      background-color: #2ecc71;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .refuse-btn {
+      background-color: transparent;
+      color: #FF6868;
+      text-decoration-line: underline;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .order {}
+
+    .buttons {
+      margin: 30px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <img src="https://flowerfool.com/files/flowerfool/Logo.Header.png" alt="logo" />
+    <div class="header">
+      <p class="orderNumber">Commande #{{ order.order_number }}</p>
+      <h1 class="title">Votre commande a été accepté 💐</h1>
+      <h2 class="text">{{ order.note.delivery_type }}</h2>
+    </div>
+    <div class="order">
+      <h2 class="paragraph">Résumé de la commande</h2>
+      <table class="product-tab">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each order.line_items}}
+          <tr class="product-line">
+            <td>
+              <img src="{{this.image}}" alt="product" class="product-img" />
+            </td>
+            <td>
+              <p class="paragraph">{{this.name}}</p>
+            </td>
+            <td>
+              <p class="paragraph">{{this.price}} €</p>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <div class="total">
+        <p>Total</p>
+        <p>{{ order.total_price }}€</p>
+      </div>
+    </div>
+    <div class="information">
+      <h2 class="title-light">Information du fleuriste</h2>
+      {{#with location}}
+      <p>{{ name }}</p>
+      <p>{{ address1 }}, {{ address2 }}, {{ zip }}, {{ city }}</p>
+      <p>{{ phone }}</p>
+      <p>{{ email }}</p>
+      {{/with}}
+    </div>
+    <div class="information">
+      <h2 class="title-light">Adresse de Facturation</h2>
+      {{#with order.billing_address}}
+      <p>{{ name }}</p>
+      <p>{{ address1 }}, {{ address2 }}, {{ zip }}, {{ city }}</p>
+      {{/with}}
+      {{#with order.customer}}
+      <p>{{ email }}</p>
+      <p>{{ phone }}</p>
+      {{/with}}
+    </div>
+    <div class="information">
+      <h2 class="title-light">Adresse de Livraison</h2>
+      {{#with order.shipping_address}}
+      <p>{{ name }}</p>
+      <p>{{ address1 }}, {{ address2 }}, {{ zip }}, {{ city }}</p>
+      <p>{{ phone }}</p>
+      {{/with}}
+    </div>
+  </div>
+</body>
+
+</html>

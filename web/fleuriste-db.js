@@ -4,7 +4,6 @@
 
 import sqlite3 from "sqlite3";
 import path from "path";
-import shopify from "./shopify.js";
 
 const DEFAULT_DB_FILE = path.join(process.cwd(), "fleuriste.sqlite");
 
@@ -69,19 +68,9 @@ export const FleuristeDB = {
 
     const query = `
       UPDATE ${this.fleuristeTableName}
-      SET
-        locationId = ?,
-        name = ?,
-        address1 = ?,
-        address2 = ?,
-        city = ?,
-        zip = ?,
-        country = ?
-        phone = ?
-        email = ?
-        openingHours = ?
-      WHERE
-        locationId = ?;
+      SET (locationId, name, address1, address2, city, zip, country, phone, email, openingHours)
+      = (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      WHERE id = ?;
     `;
 
     await this.__query(query, [

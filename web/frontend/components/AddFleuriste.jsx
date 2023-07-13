@@ -30,6 +30,9 @@ export default function AddFleuriste() {
   const [editFleuristeList, setEditFleuristeList] = useState(false);
   const [toastProps, setToastProps] = useState(emptyToastProps);
   const [isAddingFleuriste, setIsAddingFleuriste] = useState(false);
+  const [editFleuriste, setEditFleuriste] = useState(null);
+
+
 
   const {
     data,
@@ -89,7 +92,7 @@ export default function AddFleuriste() {
                 shortcutActions={[
                   {
                     content: 'Modifier',
-                    onAction: () => { },
+                    onAction: () => { setEditFleuriste(item) },
                   },
                   {
                     content: 'Suprimer',
@@ -110,6 +113,7 @@ export default function AddFleuriste() {
         />
       </LegacyCard >
       <AddFleuristePopUp isAddingFleuriste={isAddingFleuriste} setIsAddingFleuriste={setIsAddingFleuriste} refetchFleuriste={refetchFleuriste} />
+      {editFleuriste !== null && <EditFleuristePopUp editFleuriste={editFleuriste} setEditFleuriste={setEditFleuriste} refetchFleuriste={refetchFleuriste} />}
     </>
   );
 }
@@ -162,9 +166,10 @@ const AddFleuristePopUp = ({ isAddingFleuriste, setIsAddingFleuriste, refetchFle
 
 
   async function addFleuriste() {
+    const jsonOpeningHours = JSON.stringify(openingHours);
     const response = await fetch(`/api/fleuriste/`, {
       method: "POST",
-      body: JSON.stringify({ name, address1, address2, city, zip, country, phone, email, openingHours }),
+      body: JSON.stringify({ name, address1, address2, city, zip, country, phone, email, openingHours: jsonOpeningHours }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -176,6 +181,47 @@ const AddFleuristePopUp = ({ isAddingFleuriste, setIsAddingFleuriste, refetchFle
     } else {
       setIsAddingFleuriste(!isAddingFleuriste);
     }
+    // reset state
+    setName('');
+    setAddress1('');
+    setAddress2('');
+    setCity('');
+    setZip('');
+    setCountry('');
+    setPhone('');
+    setEmail('');
+    setHours(
+      {
+        lundi: {
+          open: '9',
+          close: '18'
+        },
+        mardi: {
+          open: '9',
+          close: '18'
+        },
+        mercredi: {
+          open: '9',
+          close: '18'
+        },
+        jeudi: {
+          open: '9',
+          close: '18'
+        },
+        vendredi: {
+          open: '9',
+          close: '18'
+        },
+        samedi: {
+          open: '9',
+          close: '18'
+        },
+        dimanche: {
+          open: '9',
+          close: '18'
+        },
+      }
+    );
   }
 
   return (
@@ -278,8 +324,152 @@ const AddFleuristePopUp = ({ isAddingFleuriste, setIsAddingFleuriste, refetchFle
 }
 
 
+
+const EditFleuristePopUp = ({ editFleuriste, setEditFleuriste, refetchFleuriste }) => {
+  const fetch = useAuthenticatedFetch();
+  const [name, setName] = useState(editFleuriste.name);
+  const [address1, setAddress1] = useState(editFleuriste.address1);
+  const [address2, setAddress2] = useState(editFleuriste.address2);
+  const [city, setCity] = useState(editFleuriste.city);
+  const [zip, setZip] = useState(editFleuriste.zip);
+  const [country, setCountry] = useState(editFleuriste.country);
+  const [phone, setPhone] = useState(editFleuriste.phone);
+  const [email, setEmail] = useState(editFleuriste.email);
+  const [openingHours, setHours] = useState(JSON.parse(editFleuriste.openingHours));
+
+
+  async function updateFleuriste() {
+    const jsonOpeningHours = JSON.stringify(openingHours);
+    const response = await fetch(`/api/fleuriste/`, {
+      method: "PUT",
+      body: JSON.stringify({ name, address1, address2, city, zip, country, phone, email, openingHours: jsonOpeningHours, locationId: editFleuriste.locationId, id: editFleuriste.id }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      refetchFleuriste();
+      setEditFleuriste(null);
+    } else {
+      setEditFleuriste(null);
+    }
+  }
+
+  return (
+    <div style={{ height: '500px' }}>
+      <Modal
+        open={editFleuriste !== null ? true : false}
+        onClose={() => setEditFleuriste(null)}
+        title="Ajouter un fleuriste"
+        secondaryActions={[
+          {
+            content: 'Annuler',
+            onAction: () => setEditFleuriste(null),
+            destructive: true,
+          },
+        ]}
+      >
+        <Modal.Section>
+          <Form onSubmit={updateFleuriste}>
+            <FormLayout>
+              <Text variant="heading2xl">Informations</Text>
+              <FormLayout.Group>
+                <TextField
+                  label="Nom du fleuriste"
+                  value={name}
+                  onChange={e => setName(e)}
+                  autoComplete="off"
+                  placeholder='La Roserie'
+
+                />
+                <TextField
+                  label="Adresse"
+                  value={address1}
+                  onChange={e => setAddress1(e)}
+                  autoComplete="off"
+                  placeholder='1 rue de la paix'
+                />
+              </FormLayout.Group>
+              <FormLayout.Group>
+                <TextField
+                  label="Adresse 2"
+                  value={address2}
+                  onChange={e => setAddress2(e)}
+                  autoComplete="off"
+                  placeholder='Batiment A'
+                />
+                <TextField
+                  label="Ville"
+                  value={city}
+                  onChange={e => setCity(e)}
+                  autoComplete="off"
+                  placeholder='Paris'
+                />
+              </FormLayout.Group>
+              <FormLayout.Group>
+                <TextField
+                  label="Code postal"
+                  value={zip}
+                  onChange={e => setZip(e)}
+                  autoComplete="off"
+                  placeholder='75000'
+                />
+                <TextField
+                  label="Pays"
+                  value={country}
+                  onChange={e => setCountry(e)}
+                  autoComplete="off"
+                  placeholder='France'
+                />
+              </FormLayout.Group>
+              <FormLayout.Group>
+                <TextField
+                  label="Téléphone"
+                  value={phone}
+                  onChange={e => setPhone(e)}
+                  autoComplete="off"
+                  placeholder='01 02 03 04 05'
+                />
+                <TextField
+                  label="Email"
+                  value={email}
+                  onChange={e => setEmail(e)}
+                  autoComplete="off"
+                  placeholder='laroserie@gmail.com'
+                />
+              </FormLayout.Group>
+              <Divider borderColor="border" />
+              <Text variant="heading2xl">Horraire d'ouverture</Text>
+              {Object.keys(openingHours).map((day, index) => {
+                return (
+                  <PickHoursComponent hours={openingHours} setHours={setHours} day={day} key={index} />
+                )
+              })}
+              <Button submit primary>Enregistrer</Button>
+            </FormLayout>
+          </Form>
+        </Modal.Section>
+      </Modal>
+    </div>
+  );
+}
+
+
+
+
+
 const PickHoursComponent = ({ hours, setHours, day }) => {
   const [checked, setChecked] = useState(false);
+
+  useEffect(() => {
+    if (hours[day].open === null && hours[day].close === null) {
+      setChecked(true);
+    } else {
+      setChecked(false);
+    }
+  }, [hours])
+
 
   function handleClose(isCLosed) {
     if (isCLosed) {

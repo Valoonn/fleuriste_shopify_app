@@ -1,0 +1,459 @@
+{
+  "id": 5275623522464,
+  "admin_graphql_api_id": "gid://shopify/Order/5275623522464",
+  "app_id": 1354745,
+  "browser_ip": "82.124.95.73",
+  "buyer_accepts_marketing": false,
+  "cancel_reason": null,
+  "cancelled_at": null,
+  "cart_token": null,
+  "checkout_id": 26935866884256,
+  "checkout_token": "6bc7c20f619424aa01b80b5bbd3dcefe",
+  "client_details": {
+    "accept_language": null,
+    "browser_height": null,
+    "browser_ip": "82.124.95.73",
+    "browser_width": null,
+    "session_hash": null,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+  },
+  "closed_at": null,
+  "company": null,
+  "confirmed": true,
+  "contact_email": "valentin@valoon.fr",
+  "created_at": "2023-06-26T01:36:11+02:00",
+  "currency": "EUR",
+  "current_subtotal_price": "144.96",
+  "current_subtotal_price_set": {
+    "shop_money": {
+      "amount": "144.96",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "144.96",
+      "currency_code": "EUR"
+    }
+  },
+  "current_total_additional_fees_set": null,
+  "current_total_discounts": "0.00",
+  "current_total_discounts_set": {
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "EUR"
+    }
+  },
+  "current_total_duties_set": null,
+  "current_total_price": "144.96",
+  "current_total_price_set": {
+    "shop_money": {
+      "amount": "144.96",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "144.96",
+      "currency_code": "EUR"
+    }
+  },
+  "current_total_tax": "0.00",
+  "current_total_tax_set": {
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "EUR"
+    }
+  },
+  "customer_locale": "fr",
+  "device_id": null,
+  "discount_codes": [],
+  "email": "valentin@valoon.fr",
+  "estimated_taxes": false,
+  "financial_status": "paid",
+  "fulfillment_status": null,
+  "landing_site": null,
+  "landing_site_ref": null,
+  "location_id": null,
+  "merchant_of_record_app_id": null,
+  "name": "#1040",
+  "note": null,
+  "note_attributes": [],
+  "number": 40,
+  "order_number": 1040,
+  "order_status_url": "https://cosykicks.fr/53285781664/orders/c1a01323e1ada836983e53ab7ac83f92/authenticate?key=07916b310ec36e9173628e1f8b823fe4",
+  "original_total_additional_fees_set": null,
+  "original_total_duties_set": null,
+  "payment_gateway_names": [
+    "manual"
+  ],
+  "phone": "+33695918720",
+  "po_number": null,
+  "presentment_currency": "EUR",
+  "processed_at": "2023-06-26T01:36:10+02:00",
+  "reference": "481c54280bf13ec005a617a966fab714",
+  "referring_site": null,
+  "source_identifier": "481c54280bf13ec005a617a966fab714",
+  "source_name": "shopify_draft_order",
+  "source_url": null,
+  "subtotal_price": "144.96",
+  "subtotal_price_set": {
+    "shop_money": {
+      "amount": "144.96",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "144.96",
+      "currency_code": "EUR"
+    }
+  },
+  "tags": "",
+  "tax_exempt": true,
+  "tax_lines": [],
+  "taxes_included": true,
+  "test": false,
+  "token": "c1a01323e1ada836983e53ab7ac83f92",
+  "total_discounts": "0.00",
+  "total_discounts_set": {
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "EUR"
+    }
+  },
+  "total_line_items_price": "144.96",
+  "total_line_items_price_set": {
+    "shop_money": {
+      "amount": "144.96",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "144.96",
+      "currency_code": "EUR"
+    }
+  },
+  "total_outstanding": "0.00",
+  "total_price": "144.96",
+  "total_price_set": {
+    "shop_money": {
+      "amount": "144.96",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "144.96",
+      "currency_code": "EUR"
+    }
+  },
+  "total_shipping_price_set": {
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "EUR"
+    }
+  },
+  "total_tax": "0.00",
+  "total_tax_set": {
+    "shop_money": {
+      "amount": "0.00",
+      "currency_code": "EUR"
+    },
+    "presentment_money": {
+      "amount": "0.00",
+      "currency_code": "EUR"
+    }
+  },
+  "total_tip_received": "0.00",
+  "total_weight": 0,
+  "updated_at": "2023-06-26T01:36:12+02:00",
+  "user_id": 82448973984,
+  "billing_address": {
+    "first_name": "Valentin",
+    "address1": "95 Rue de Boissy",
+    "phone": "+33695918720",
+    "city": "Saint-Leu-la-Forêt",
+    "zip": "95320",
+    "province": null,
+    "country": "France",
+    "last_name": "Macé",
+    "address2": null,
+    "company": null,
+    "latitude": 49.0182077,
+    "longitude": 2.236815,
+    "name": "Valentin Macé",
+    "country_code": "FR",
+    "province_code": null
+  },
+  "customer": {
+    "id": 6783400968352,
+    "email": "valentin@valoon.fr",
+    "accepts_marketing": false,
+    "created_at": "2023-06-26T01:35:20+02:00",
+    "updated_at": "2023-06-26T01:36:11+02:00",
+    "first_name": "Valentin",
+    "last_name": "Macé",
+    "state": "disabled",
+    "note": "",
+    "verified_email": true,
+    "multipass_identifier": null,
+    "tax_exempt": true,
+    "phone": "+33695918720",
+    "email_marketing_consent": {
+      "state": "not_subscribed",
+      "opt_in_level": "single_opt_in",
+      "consent_updated_at": null
+    },
+    "sms_marketing_consent": {
+      "state": "not_subscribed",
+      "opt_in_level": "single_opt_in",
+      "consent_updated_at": null,
+      "consent_collected_from": "SHOPIFY"
+    },
+    "tags": "",
+    "currency": "EUR",
+    "accepts_marketing_updated_at": "2023-06-26T01:35:20+02:00",
+    "marketing_opt_in_level": null,
+    "tax_exemptions": [],
+    "admin_graphql_api_id": "gid://shopify/Customer/6783400968352",
+    "default_address": {
+      "id": 8078261289120,
+      "customer_id": 6783400968352,
+      "first_name": "Valentin",
+      "last_name": "Macé",
+      "company": "",
+      "address1": "95 Rue de Boissy",
+      "address2": "",
+      "city": "Saint-Leu-la-Forêt",
+      "province": null,
+      "country": "France",
+      "zip": "95320",
+      "phone": "+33695918720",
+      "name": "Valentin Macé",
+      "province_code": null,
+      "country_code": "FR",
+      "country_name": "France",
+      "default": true
+    }
+  },
+  "discount_applications": [],
+  "fulfillments": [],
+  "line_items": [
+    {
+      "id": 12769855996064,
+      "admin_graphql_api_id": "gid://shopify/LineItem/12769855996064",
+      "fulfillable_quantity": 1,
+      "fulfillment_service": "manual",
+      "fulfillment_status": null,
+      "gift_card": false,
+      "grams": 0,
+      "name": "Bouquet de fleurs des champs",
+      "price": "24.99",
+      "price_set": {
+        "shop_money": {
+          "amount": "24.99",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "24.99",
+          "currency_code": "EUR"
+        }
+      },
+      "product_exists": true,
+      "product_id": 9304104337568,
+      "properties": [],
+      "quantity": 1,
+      "requires_shipping": true,
+      "sku": "",
+      "taxable": true,
+      "title": "Bouquet de fleurs des champs",
+      "total_discount": "0.00",
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "EUR"
+        }
+      },
+      "variant_id": 44924329459872,
+      "variant_inventory_management": "shopify",
+      "variant_title": null,
+      "vendor": "Chaussons-sneak",
+      "tax_lines": [],
+      "duties": [],
+      "discount_allocations": []
+    },
+    {
+      "id": 12769856028832,
+      "admin_graphql_api_id": "gid://shopify/LineItem/12769856028832",
+      "fulfillable_quantity": 1,
+      "fulfillment_service": "manual",
+      "fulfillment_status": null,
+      "gift_card": false,
+      "grams": 0,
+      "name": "Bouquet de printemps éclatant",
+      "price": "29.99",
+      "price_set": {
+        "shop_money": {
+          "amount": "29.99",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "29.99",
+          "currency_code": "EUR"
+        }
+      },
+      "product_exists": true,
+      "product_id": 9304067440800,
+      "properties": [],
+      "quantity": 1,
+      "requires_shipping": true,
+      "sku": "",
+      "taxable": true,
+      "title": "Bouquet de printemps éclatant",
+      "total_discount": "0.00",
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "EUR"
+        }
+      },
+      "variant_id": 44924289974432,
+      "variant_inventory_management": "shopify",
+      "variant_title": null,
+      "vendor": "Chaussons-sneak",
+      "tax_lines": [],
+      "duties": [],
+      "discount_allocations": []
+    },
+    {
+      "id": 12769856061600,
+      "admin_graphql_api_id": "gid://shopify/LineItem/12769856061600",
+      "fulfillable_quantity": 1,
+      "fulfillment_service": "manual",
+      "fulfillment_status": null,
+      "gift_card": false,
+      "grams": 0,
+      "name": "Bouquet exotique d'été",
+      "price": "49.99",
+      "price_set": {
+        "shop_money": {
+          "amount": "49.99",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "49.99",
+          "currency_code": "EUR"
+        }
+      },
+      "product_exists": true,
+      "product_id": 9304099782816,
+      "properties": [],
+      "quantity": 1,
+      "requires_shipping": true,
+      "sku": "",
+      "taxable": true,
+      "title": "Bouquet exotique d'été",
+      "total_discount": "0.00",
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "EUR"
+        }
+      },
+      "variant_id": 44924324053152,
+      "variant_inventory_management": "shopify",
+      "variant_title": null,
+      "vendor": "Chaussons-sneak",
+      "tax_lines": [],
+      "duties": [],
+      "discount_allocations": []
+    },
+    {
+      "id": 12769856094368,
+      "admin_graphql_api_id": "gid://shopify/LineItem/12769856094368",
+      "fulfillable_quantity": 1,
+      "fulfillment_service": "manual",
+      "fulfillment_status": null,
+      "gift_card": false,
+      "grams": 0,
+      "name": "Bouquet romantique en rose",
+      "price": "39.99",
+      "price_set": {
+        "shop_money": {
+          "amount": "39.99",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "39.99",
+          "currency_code": "EUR"
+        }
+      },
+      "product_exists": true,
+      "product_id": 9304094048416,
+      "properties": [],
+      "quantity": 1,
+      "requires_shipping": true,
+      "sku": "",
+      "taxable": true,
+      "title": "Bouquet romantique en rose",
+      "total_discount": "0.00",
+      "total_discount_set": {
+        "shop_money": {
+          "amount": "0.00",
+          "currency_code": "EUR"
+        },
+        "presentment_money": {
+          "amount": "0.00",
+          "currency_code": "EUR"
+        }
+      },
+      "variant_id": 44924318122144,
+      "variant_inventory_management": "shopify",
+      "variant_title": null,
+      "vendor": "Chaussons-sneak",
+      "tax_lines": [],
+      "duties": [],
+      "discount_allocations": []
+    }
+  ],
+  "payment_terms": null,
+  "refunds": [],
+  "shipping_address": {
+    "first_name": "Valentin",
+    "address1": "95 Rue de Boissy",
+    "phone": "+33695918720",
+    "city": "Saint-Leu-la-Forêt",
+    "zip": "95320",
+    "province": null,
+    "country": "France",
+    "last_name": "Macé",
+    "address2": null,
+    "company": null,
+    "latitude": 49.0182077,
+    "longitude": 2.236815,
+    "name": "Valentin Macé",
+    "country_code": "FR",
+    "province_code": null
+  },
+  "shipping_lines": []
+}

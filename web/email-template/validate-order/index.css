@@ -1,0 +1,92 @@
+body {
+  background-color: aliceblue;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.content {
+  padding: 20px 20px;
+}
+
+.orderNumber {
+  color: rgb(146, 146, 146);
+  font-size: 14px;
+}
+
+.header {
+  margin: 30px 0;
+
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.title-light {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.text {
+  font-size: 16px;
+}
+
+.paragraph {
+  font-size: 15px;
+}
+
+.product-tab {
+  margin: 30px 0;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-img {
+  width: 75px;
+}
+
+td {
+  align-items: center;
+  width: fit-content;
+  padding: 0px 5px;
+}
+
+.product-line {
+  border-bottom: 1px solid rgb(199, 199, 199);
+}
+
+
+.accept-btn {
+  background-color: #2ecc71;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.refuse-btn {
+  background-color: transparent;
+  color: #FF6868;
+  text-decoration-line: underline;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.order {}
+
+.buttons {
+  margin: 30px 0;
+  display: flex;
+  justify-content: space-between;
+}

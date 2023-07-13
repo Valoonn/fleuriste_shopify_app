@@ -1,6 +1,6 @@
 import express from "express";
 
-import shopify from "../shopify.js";
+import { shopify } from "../shopify.js";
 
 import { FleuristeDB } from "../fleuriste-db.js";
 
@@ -13,14 +13,19 @@ export default function applyFleuristeApiEndpoints(app) {
   app.use(express.json());
 
   app.get("/api/fleuriste/", async (_req, res) => {
+    try {
 
-    const fleuristesList = await FleuristeDB.list();
-    console.log(fleuristesList)
+      const fleuristesList = await FleuristeDB.list();
+      console.log(fleuristesList)
 
-    const fleuristes = await shopify.api.rest.Location.all({
-      session: res.locals.shopify.session,
-    });
-    res.status(200).send(fleuristesList);
+      const fleuristes = await shopify.api.rest.Location.all({
+        session: res.locals.shopify.session,
+      });
+      res.status(200).send(fleuristesList);
+    } catch (err) {
+      console.log(err)
+      res.status(500).send(err);
+    }
   });
 
 
@@ -29,7 +34,9 @@ export default function applyFleuristeApiEndpoints(app) {
       const { id } = _req.body;
       const session = res.locals.shopify.session;
       const client = new shopify.api.clients.Graphql({ session });
-      console.log(id)
+
+      // delete fleuriste in db
+      await FleuristeDB.delete(id);
 
       const data = await client.query({
         data: {
@@ -124,8 +131,8 @@ export default function applyFleuristeApiEndpoints(app) {
 
 
   app.post("/api/fleuriste", async (_req, res) => {
-    console.log(_req.body)
     try {
+      console.log(_req.body)
       const {
         name,
         address1,
@@ -194,5 +201,76 @@ export default function applyFleuristeApiEndpoints(app) {
     }
   });
 
+
+  app.put("/api/fleuriste", async (_req, res) => {
+    try {
+      console.log(_req.body)
+      const {
+        name,
+        address1,
+        address2,
+        city,
+        zip,
+        country,
+        phone,
+        email,
+        openingHours,
+        id,
+        locationId
+      } = _req.body;
+
+      // create a location in shopify
+      const session = res.locals.shopify.session;
+      const client = new shopify.api.clients.Graphql({ session });
+
+
+      const EditQuery = gql`mutation {
+        locationEdit(id: "${locationId}", input: {name: "${name}", address: {address1: "${address1}", address2: "${address2}", city: "${city}", countryCode: FR, zip: "${zip}", phone: "${phone}"}, fulfillsOnlineOrders: true}) {
+          location {
+            id
+            name
+            address {
+              address1
+              address2
+              city
+              zip
+              countryCode
+              phone
+            }
+            fulfillsOnlineOrders
+          }
+        }
+      }`
+
+
+
+      const data = await client.query({
+        data: {
+          query: EditQuery,
+        }
+      });
+
+      console.log(JSON.stringify(data, null, 2))
+      console.log(JSON.stringify(data.body.data, null, 2))
+
+      const editedId = await FleuristeDB.update(id, {
+        locationId,
+        name,
+        address1,
+        address2,
+        city,
+        zip,
+        country,
+        phone,
+        email,
+        openingHours,
+      });
+
+      res.status(200).send({ editedId });
+    } catch (err) {
+      console.log(err)
+      res.status(500).send(err);
+    }
+  });
 
 }
